@@ -29,7 +29,7 @@ publications/
 ```text
 [open_file_library folder="publications"]
 
-[open_file_library folder="publications/reports" search="true" breadcrumbs="false" show_size="false" show_date="true" types="pdf,docx,png" sort="date" order="desc"]
+[open_file_library folder="publications/reports" search="true" breadcrumbs="true" show_size="false" show_date="true" types="pdf,docx,png" sort="date" order="desc"]
 ```
 
 ## Shortcode Options
@@ -37,8 +37,8 @@ publications/
 | Option | Default | Values |
 | --- | --- | --- |
 | `folder` | Required | Directory relative to uploads, such as `publications/reports` |
-| `search` | `true` | `true` or `false` |
-| `breadcrumbs` | `true` | `true` or `false`. Parent navigation stays available. |
+| `search` | `false` | Set to `true` to show filename search. |
+| `breadcrumbs` | `false` | Set to `true` to show the breadcrumb trail. Parent navigation stays available. |
 | `show_size` | `true` | `true` or `false` |
 | `show_date` | `false` | `true` or `false` |
 | `types` | `pdf` | Comma-separated extensions from the list below |

@@ -65,9 +65,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<noscript><p><?php esc_html_e( 'Use the examples below to write a shortcode by hand.', 'open-file-library' ); ?></p></noscript>
 
 	<h2><?php esc_html_e( 'Examples', 'open-file-library' ); ?></h2>
-	<p><?php esc_html_e( 'By default, the library lists PDFs by filename in ascending order, with search, breadcrumbs, and file sizes enabled. Modification dates are hidden.', 'open-file-library' ); ?></p>
+	<p><?php esc_html_e( 'By default, the library lists PDFs by filename in ascending order and shows file sizes. Search, breadcrumbs, and modification dates are hidden.', 'open-file-library' ); ?></p>
 	<p><code>[open_file_library folder="publications"]</code></p>
-	<p><code>[open_file_library folder="publications/reports" breadcrumbs="false" show_size="false" show_date="true" types="pdf,docx,png" sort="date" order="desc"]</code></p>
+	<p><code>[open_file_library folder="publications/reports" search="true" breadcrumbs="true" show_size="false" show_date="true" types="pdf,docx,png" sort="date" order="desc"]</code></p>
 
 	<h2><?php esc_html_e( 'Important notes', 'open-file-library' ); ?></h2>
 	<ul class="ul-disc">

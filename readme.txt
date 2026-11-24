@@ -14,7 +14,7 @@ Browse, search, and download public files from an existing WordPress uploads fol
 
 Open File Library is a lightweight WordPress plugin by Algoritmik. It displays local uploads folders and files as a responsive list with nested folder navigation, filename search, and direct download links. The filesystem is the source of truth, so there are no imports, attachment records, or saved plugin settings.
 
-Use `[open_file_library folder="publications"]` to list PDFs. Under Settings → Open File Library, the help page can generate a shortcode including `search`, `breadcrumbs`, `show_size`, `show_date`, `types`, `sort`, and `order`.
+Use `[open_file_library folder="publications"]` to list PDFs. Set `search="true"` or `breadcrumbs="true"` to enable either option. Under Settings → Open File Library, the help page can generate a shortcode with these options and controls for file size, date, types, and sorting.
 
 Supported extensions include PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, ODT, ODS, ODP, TXT, CSV, ZIP, JPG, JPEG, PNG, GIF, and WEBP.
 

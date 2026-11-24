@@ -8,8 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 const DEFAULTS = array(
 	'folder'      => '',
-	'search'      => true,
-	'breadcrumbs' => true,
+	'search'      => false,
+	'breadcrumbs' => false,
 	'show_size'   => true,
 	'show_date'   => false,
 	'types'       => 'pdf',
