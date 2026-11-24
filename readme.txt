@@ -1,6 +1,8 @@
 === Open File Library ===
+Contributors: saplumbaga
 Tags: files, documents, downloads, shortcode, file library
 Requires at least: 6.5
+Tested up to: 7.1
 Requires PHP: 8.2
 Stable tag: 1.0.0
 License: GPL-2.0-or-later

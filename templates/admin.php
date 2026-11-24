@@ -25,10 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<fieldset>
 			<legend><?php esc_html_e( 'Display options', 'open-file-library' ); ?></legend>
-			<?php foreach ( $booleans as $option => $label ) : ?>
+			<?php foreach ( $booleans as $open_file_library_option => $open_file_library_label ) : ?>
 				<label>
-					<input type="checkbox" name="<?php echo esc_attr( $option ); ?>" data-ofl-option <?php checked( DEFAULTS[ $option ] ); ?>>
-					<?php echo esc_html( $label ); ?>
+					<input type="checkbox" name="<?php echo esc_attr( $open_file_library_option ); ?>" data-ofl-option <?php checked( DEFAULTS[ $open_file_library_option ] ); ?>>
+					<?php echo esc_html( $open_file_library_label ); ?>
 				</label>
 			<?php endforeach; ?>
 		</fieldset>
@@ -36,22 +36,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<fieldset>
 			<legend><?php esc_html_e( 'File types', 'open-file-library' ); ?></legend>
 			<div class="ofl-types">
-				<?php foreach ( FILE_TYPES as $type ) : ?>
+				<?php foreach ( FILE_TYPES as $open_file_library_extension ) : ?>
 					<label>
-						<input type="checkbox" name="types" value="<?php echo esc_attr( $type ); ?>" <?php checked( DEFAULTS['types'], $type ); ?>>
-						<?php echo esc_html( strtoupper( $type ) ); ?>
+						<input type="checkbox" name="types" value="<?php echo esc_attr( $open_file_library_extension ); ?>" <?php checked( DEFAULTS['types'], $open_file_library_extension ); ?>>
+						<?php echo esc_html( strtoupper( $open_file_library_extension ) ); ?>
 					</label>
 				<?php endforeach; ?>
 			</div>
 			<p class="description"><?php esc_html_e( 'PDF is selected by default. Clearing all file types shows folders only.', 'open-file-library' ); ?></p>
 		</fieldset>
 
-		<?php foreach ( $selects as $option => $select ) : ?>
+		<?php foreach ( $selects as $open_file_library_option => $open_file_library_select ) : ?>
 			<p>
-				<label for="ofl-<?php echo esc_attr( $option ); ?>"><?php echo esc_html( $select['label'] ); ?></label>
-				<select id="ofl-<?php echo esc_attr( $option ); ?>" name="<?php echo esc_attr( $option ); ?>" data-ofl-option>
-					<?php foreach ( $select['choices'] as $value => $label ) : ?>
-						<option value="<?php echo esc_attr( $value ); ?>" <?php selected( DEFAULTS[ $option ], $value ); ?>><?php echo esc_html( $label ); ?></option>
+				<label for="ofl-<?php echo esc_attr( $open_file_library_option ); ?>"><?php echo esc_html( $open_file_library_select['label'] ); ?></label>
+				<select id="ofl-<?php echo esc_attr( $open_file_library_option ); ?>" name="<?php echo esc_attr( $open_file_library_option ); ?>" data-ofl-option>
+					<?php foreach ( $open_file_library_select['choices'] as $open_file_library_value => $open_file_library_label ) : ?>
+						<option value="<?php echo esc_attr( $open_file_library_value ); ?>" <?php selected( DEFAULTS[ $open_file_library_option ], $open_file_library_value ); ?>><?php echo esc_html( $open_file_library_label ); ?></option>
 					<?php endforeach; ?>
 				</select>
 			</p>
