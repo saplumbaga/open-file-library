@@ -1,0 +1,22 @@
+.ofl-admin {
+	max-inline-size: 48rem;
+}
+
+.ofl-admin fieldset {
+	margin-block: 1rem;
+}
+
+.ofl-admin legend {
+	font-weight: 600;
+	margin-block-end: 0.35rem;
+}
+
+.ofl-admin fieldset label {
+	display: inline-block;
+	margin-inline-end: 0.85rem;
+	margin-block-end: 0.4rem;
+}
+
+.ofl-admin .ofl-types {
+	max-inline-size: 36rem;
+}

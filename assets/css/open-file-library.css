@@ -1,0 +1,117 @@
+.ofl-library [hidden] {
+	display: none !important;
+}
+
+.ofl-library .ofl-list,
+.ofl-library .ofl-breadcrumbs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ofl-library .ofl-folder > .ofl-list {
+	padding-inline-start: min(1.25rem, 4%);
+}
+
+.ofl-library .ofl-search {
+	display: grid;
+	gap: 0.25rem;
+	max-inline-size: 28rem;
+	margin-block-end: 0.75rem;
+}
+
+.ofl-library .ofl-search-input {
+	box-sizing: border-box;
+	inline-size: 100%;
+	min-inline-size: 0;
+	font: inherit;
+}
+
+.ofl-library .ofl-navigation,
+.ofl-library .ofl-breadcrumbs {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.15rem 0.5rem;
+}
+
+.ofl-library .ofl-breadcrumbs li + li::before {
+	content: "/";
+	margin-inline-end: 0.5rem;
+}
+
+.ofl-library .ofl-folder-label,
+.ofl-library .ofl-open,
+.ofl-library .ofl-download {
+	display: inline-flex;
+	min-inline-size: 0;
+	max-inline-size: 100%;
+	align-items: center;
+	gap: 0.45em;
+}
+
+.ofl-library button {
+	background: transparent;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	text-align: start;
+	text-decoration: underline;
+	padding: 0.25em 0.15em;
+	min-block-size: 2rem;
+	cursor: pointer;
+}
+
+.ofl-library .ofl-file {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.125rem 0.65rem;
+	padding-block: 0.2rem;
+}
+
+.ofl-library .ofl-file-main {
+	flex: 1 1 12rem;
+	min-inline-size: 0;
+}
+
+.ofl-library .ofl-download {
+	color: inherit;
+	justify-content: center;
+	inline-size: 2rem;
+	block-size: 2rem;
+}
+
+.ofl-library .ofl-icon {
+	flex: none;
+}
+
+.ofl-library .ofl-name,
+.ofl-library .ofl-result-parent,
+.ofl-library .ofl-breadcrumbs,
+.ofl-library .ofl-meta {
+	overflow-wrap: anywhere;
+}
+
+.ofl-library .ofl-result-parent {
+	display: block;
+	padding-inline-start: calc(20px + 0.45em);
+}
+
+.ofl-library .ofl-meta,
+.ofl-library .ofl-result-parent {
+	font-size: 0.875em;
+}
+
+.ofl-library :is(a, button, input, .ofl-browse):focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.ofl-library .ofl-status {
+	margin-block: 0;
+}
+
+.ofl-library .ofl-status:not(:empty) {
+	margin-block-end: 0.5rem;
+}
