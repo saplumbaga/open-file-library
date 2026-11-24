@@ -29,6 +29,56 @@ function contains_path( string $directory, string $path ): bool {
 	return str_starts_with( $path, $directory . '/' );
 }
 
+/** Find other sites' upload roots that overlap the main site's library space. */
+function excluded_site_uploads( string $base ): array {
+	if ( ! is_multisite() || ! is_main_site() ) {
+		return array();
+	}
+
+	$base_key = strtolower( $base );
+	$excluded = array();
+	$directories = array();
+	if ( get_site_option( 'ms_files_rewriting' ) ) {
+		if ( defined( 'UPLOADBLOGSDIR' ) ) {
+			$directories[] = ABSPATH . UPLOADBLOGSDIR;
+		}
+	} elseif ( defined( 'MULTISITE' ) ) {
+		// Reserve WordPress's standard subsite container, including orphaned directories.
+		$excluded[ $base_key . '/sites' ] = true;
+	}
+
+	$site_ids = get_sites(
+		array(
+			'network_id'   => get_current_network_id(),
+			'site__not_in' => array( get_current_blog_id() ),
+			'fields'       => 'ids',
+			'number'       => 0,
+		)
+	);
+	foreach ( $site_ids as $site_id ) {
+		switch_to_blog( $site_id );
+		try {
+			$uploads = wp_upload_dir( null, false );
+			if ( ! empty( $uploads['basedir'] ) ) {
+				$directories[] = $uploads['basedir'];
+			}
+		} finally {
+			restore_current_blog();
+		}
+	}
+
+	foreach ( $directories as $directory ) {
+		$canonical = @realpath( $directory );
+		if ( false !== $canonical ) {
+			$key = strtolower( rtrim( wp_normalize_path( $canonical ), '/' ) );
+			if ( $base_key === $key || contains_path( $base_key, $key ) ) {
+				$excluded[ $key ] = true;
+			}
+		}
+	}
+	return $excluded;
+}
+
 /** Accept only the canonical entry at this exact path. Links can point inside the root too. */
 function entry_stat( string $path, string $boundary ): ?array {
 	clearstatcache( true, $path );
@@ -71,17 +121,28 @@ function library_location( string $folder ): ?array {
 	if ( '' === $base || ! @is_dir( $base ) ) {
 		return null;
 	}
+	$excluded = excluded_site_uploads( $base );
+	if ( isset( $excluded[ strtolower( $base ) ] ) ) {
+		return null;
+	}
 
 	$root = $base;
 	foreach ( $segments as $segment ) {
 		$root .= '/' . $segment;
+		if ( isset( $excluded[ strtolower( $root ) ] ) ) {
+			return null;
+		}
 		$stat = entry_stat( $root, $base );
 		if ( null === $stat || 0040000 !== ( $stat['mode'] & 0170000 ) ) {
 			return null;
 		}
 	}
 
-	return array( 'root' => $root, 'base_url' => rtrim( $uploads['baseurl'], '/' ) );
+	return array(
+		'root'     => $root,
+		'base_url' => rtrim( $uploads['baseurl'], '/' ),
+		'excluded' => $excluded,
+	);
 }
 
 function allowed_extension( string $name, array $types ): ?string {
@@ -138,9 +199,10 @@ function file_order( array $options ): \Closure {
 	};
 }
 
-function scan_library( string $root, array $options ): ?array {
+function scan_library( string $root, array $options, array $excluded ): ?array {
 	$scan = array(
 		'root'       => $root,
+		'excluded'   => $excluded,
 		'deadline'   => hrtime( true ) + SCAN_BUDGET_MS * 1_000_000,
 		'visited'    => 0,
 		'incomplete' => false,
@@ -189,7 +251,11 @@ function scan_directory( string $relative, int $depth, array $options, array &$s
 			}
 
 			$path = '' === $relative ? $name : $relative . '/' . $name;
-			$stat = entry_stat( $directory . '/' . $name, $scan['root'] );
+			$entry = $directory . '/' . $name;
+			if ( isset( $scan['excluded'][ strtolower( $entry ) ] ) ) {
+				continue;
+			}
+			$stat = entry_stat( $entry, $scan['root'] );
 			if ( null === $stat ) {
 				continue;
 			}
@@ -209,7 +275,7 @@ function scan_directory( string $relative, int $depth, array $options, array &$s
 			if ( null === $extension ) {
 				continue;
 			}
-			if ( ! @is_readable( $directory . '/' . $name ) ) {
+			if ( ! @is_readable( $entry ) ) {
 				$scan['incomplete'] = true;
 				continue;
 			}

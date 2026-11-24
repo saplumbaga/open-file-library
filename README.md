@@ -50,6 +50,7 @@ Supported extensions are `pdf`, `doc`, `docx`, `xls`, `xlsx`, `ppt`, `pptx`, `od
 ## Important Notes
 
 - **Use public files only.** Direct uploads URLs can remain accessible even when a file is excluded or the page is password-protected. Extension filtering does not validate file contents. Manage upload security and execution rules at the hosting level.
+- Give shortcode-enabled publishing access to people you trust to select appropriate public uploads directories.
 - The library needs a locally readable directory that maps to a public uploads URL. Symbolic links are skipped. Remote-only storage is unsupported.
 - Each library scans up to 16 descendant directory levels and 5,000 entries, with a best-effort time budget of one second. An incomplete library displays a notice.
 - File changes appear when WordPress renders the page again. Full-page caches may delay updates until expiry or purge.

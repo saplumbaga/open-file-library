@@ -27,7 +27,7 @@ Supported extensions include PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, ODT, ODS, ODP
 
 = Can I list private files? =
 
-Use public files only. Files can remain directly accessible through the uploads URL even if they are excluded from the listing or the page is password-protected. Your hosting setup controls how files are served.
+Use public files only. Files can remain directly accessible through the uploads URL even if they are excluded from the listing or the page is password-protected. Your hosting setup controls how files are served. Give shortcode-enabled publishing access to people you trust to select appropriate public uploads directories.
 
 = Why are files missing from the list? =
 
@@ -44,4 +44,6 @@ Browsers and server headers control how downloads behave, especially when the up
 == Changelog ==
 
 = 1.0.0 =
-* Initial release with public folder listings, filename search, sorting, and a shortcode generator.
+* Browse public uploads folders, search filenames, and sort by name, size, or modification date.
+* Generate shortcodes from the WordPress help page. Direct links remain available without JavaScript.
+* Prevent main-site libraries from listing nested subsite uploads on multisite.

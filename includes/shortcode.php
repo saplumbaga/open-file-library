@@ -70,7 +70,7 @@ function library_shortcode( array $attributes ): string {
 	if ( null === $location ) {
 		return unavailable_library();
 	}
-	$library = scan_library( $location['root'], $options );
+	$library = scan_library( $location['root'], $options, $location['excluded'] );
 	if ( null === $library ) {
 		return unavailable_library();
 	}
