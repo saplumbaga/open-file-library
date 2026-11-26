@@ -24,7 +24,7 @@
 		if (!valid) {
 			output.value = '';
 			if (path) {
-				status.textContent = __('Enter a relative folder path with no hidden folders or empty segments.', 'open-file-library');
+				status.textContent = __('Enter a relative folder path with no hidden folders or empty segments.', 'algoritmik-open-file-library');
 			}
 			return;
 		}
@@ -54,13 +54,13 @@
 		try {
 			await navigator.clipboard.writeText(shortcode);
 			if (output.value === shortcode) {
-				status.textContent = __('Shortcode copied.', 'open-file-library');
+				status.textContent = __('Shortcode copied.', 'algoritmik-open-file-library');
 			}
 		} catch {
 			if (output.value === shortcode) {
 				output.focus();
 				output.select();
-				status.textContent = __('Shortcode selected. Use your keyboard to copy it.', 'open-file-library');
+				status.textContent = __('Shortcode selected. Use your keyboard to copy it.', 'algoritmik-open-file-library');
 			}
 		}
 	});

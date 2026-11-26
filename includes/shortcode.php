@@ -21,13 +21,13 @@ function register_library(): void {
 	add_shortcode( 'open_file_library', __NAMESPACE__ . '\library_shortcode' );
 	add_filter( 'pre_do_shortcode_tag', __NAMESPACE__ . '\reject_shortcode_backslashes', 10, 4 );
 
-	wp_register_style( 'ofl-library', plugins_url( 'assets/css/open-file-library.css', PLUGIN_FILE ), array(), VERSION );
-	wp_register_script( 'ofl-library', plugins_url( 'assets/js/open-file-library.js', PLUGIN_FILE ), array( 'wp-i18n' ), VERSION, true );
-	wp_set_script_translations( 'ofl-library', 'open-file-library' );
+	wp_register_style( 'ofl-library', plugins_url( 'assets/css/algoritmik-open-file-library.css', PLUGIN_FILE ), array(), VERSION );
+	wp_register_script( 'ofl-library', plugins_url( 'assets/js/algoritmik-open-file-library.js', PLUGIN_FILE ), array( 'wp-i18n' ), VERSION, true );
+	wp_set_script_translations( 'ofl-library', 'algoritmik-open-file-library' );
 }
 
 function unavailable_library(): string {
-	return '<p class="ofl-unavailable">' . esc_html__( 'The file library is unavailable.', 'open-file-library' ) . '</p>';
+	return '<p class="ofl-unavailable">' . esc_html__( 'The file library is unavailable.', 'algoritmik-open-file-library' ) . '</p>';
 }
 
 function reject_shortcode_backslashes( $output, string $tag, array $attributes, array $match ) {

@@ -9,23 +9,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 function print_library( array $library, array $options, string $base_url ): void {
 	$root_url = $base_url . '/' . encode_path( $options['folder'] );
 	?>
-	<section class="ofl-library" aria-label="<?php esc_attr_e( 'File library', 'open-file-library' ); ?>">
+	<section class="ofl-library" aria-label="<?php esc_attr_e( 'File library', 'algoritmik-open-file-library' ); ?>">
 		<?php if ( $library['incomplete'] ) : ?>
-			<p class="ofl-notice"><?php esc_html_e( 'This library is incomplete. Some folders or files could not be listed.', 'open-file-library' ); ?></p>
+			<p class="ofl-notice"><?php esc_html_e( 'This library is incomplete. Some folders or files could not be listed.', 'algoritmik-open-file-library' ); ?></p>
 		<?php endif; ?>
 		<?php if ( $options['search'] ) : ?>
 			<label class="ofl-search" hidden>
-				<?php esc_html_e( 'Search files', 'open-file-library' ); ?>
+				<?php esc_html_e( 'Search files', 'algoritmik-open-file-library' ); ?>
 				<input class="ofl-search-input" type="search">
 			</label>
 		<?php endif; ?>
 		<div class="ofl-navigation" hidden>
 			<?php if ( $options['breadcrumbs'] ) : ?>
-				<nav aria-label="<?php esc_attr_e( 'Library path', 'open-file-library' ); ?>">
+				<nav aria-label="<?php esc_attr_e( 'Library path', 'algoritmik-open-file-library' ); ?>">
 					<ol class="ofl-breadcrumbs"></ol>
 				</nav>
 			<?php endif; ?>
-			<button class="ofl-parent" type="button" hidden><?php esc_html_e( 'Up one folder', 'open-file-library' ); ?></button>
+			<button class="ofl-parent" type="button" hidden><?php esc_html_e( 'Up one folder', 'algoritmik-open-file-library' ); ?></button>
 		</div>
 		<div class="ofl-browse" role="group" tabindex="-1">
 			<?php print_library_list( $library['tree'], $options, $root_url, $library['ranks'] ); ?>
@@ -46,7 +46,7 @@ function print_library_list( array $tree, array $options, string $root_url, arra
 	?>
 	<ul class="ofl-list">
 		<?php if ( ! $tree['folders'] && ! $tree['files'] ) : ?>
-			<li class="ofl-empty"><?php esc_html_e( 'This folder has no listed files or folders.', 'open-file-library' ); ?></li>
+			<li class="ofl-empty"><?php esc_html_e( 'This folder has no listed files or folders.', 'algoritmik-open-file-library' ); ?></li>
 		<?php endif; ?>
 		<?php foreach ( $tree['folders'] as $folder ) : ?>
 			<li class="ofl-folder">
@@ -62,7 +62,7 @@ function print_library_list( array $tree, array $options, string $root_url, arra
 			$url = $root_url . '/' . encode_path( $file['path'] );
 			$name = str_replace( '&', '&amp;', $file['name'] );
 			/* translators: %s: file name. */
-			$download_name = sprintf( __( 'Download %s', 'open-file-library' ), $name );
+			$download_name = sprintf( __( 'Download %s', 'algoritmik-open-file-library' ), $name );
 			?>
 			<li class="ofl-file"<?php if ( $options['search'] ) : ?> data-ofl-rank="<?php echo esc_attr( (string) $ranks[ $file['path'] ] ); ?>" data-ofl-parent="<?php echo esc_attr( str_replace( '&', '&amp;', $parent ) ); ?>"<?php endif; ?>>
 				<div class="ofl-file-main">

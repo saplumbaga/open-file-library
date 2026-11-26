@@ -1,6 +1,6 @@
-# Open File Library
+# Algoritmik Open File Library
 
-Open File Library is a lightweight WordPress plugin by Algoritmik that displays an existing uploads folder as a public, searchable library. It reads from the filesystem with zero imports and no plugin-specific database storage.
+Algoritmik Open File Library is a lightweight WordPress plugin that displays an existing uploads folder as a public, searchable library. It reads from the filesystem with zero imports and no plugin-specific database storage.
 
 ## Features
 
@@ -11,13 +11,13 @@ Open File Library is a lightweight WordPress plugin by Algoritmik that displays 
 
 ## Installation
 
-In WordPress, go to **Plugins → Add New Plugin → Upload Plugin**, upload `open-file-library.zip`, and activate it. For manual installation, copy the plugin into `wp-content/plugins/open-file-library/` and activate it from the Plugins screen. The minimum requirements are WordPress 6.5 and PHP 8.2.
+In WordPress, go to **Plugins → Add New Plugin → Upload Plugin**, upload `algoritmik-open-file-library.zip`, and activate it. For manual installation, copy the plugin into `wp-content/plugins/algoritmik-open-file-library/` and activate it from the Plugins screen. The minimum requirements are WordPress 6.5 and PHP 8.2.
 
 ## Quick Start
 
 1. Create a folder such as `publications` beneath your site’s uploads directory.
 2. Add files and subfolders with SFTP, SSH, or your hosting file manager.
-3. Add the shortcode to a page or post. You can also generate it under **Settings → Open File Library**.
+3. Add the shortcode to a page or post. You can also generate it under **Settings → Algoritmik Open File Library**.
 
 ```text
 publications/

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Open File Library
+ * Plugin Name: Algoritmik Open File Library
  * Description: A lightweight plugin by Algoritmik that displays physical folders and downloadable files using a shortcode. No imports or plugin-specific database storage.
  * Version: 1.0.0
  * Requires at least: 6.5
@@ -9,7 +9,7 @@
  * Author URI: https://algoritmik.net
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: open-file-library
+ * Text Domain: algoritmik-open-file-library
  *
  * @package OpenFileLibrary
  */

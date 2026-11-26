@@ -10,7 +10,7 @@
 		const input = library.querySelector('.ofl-search-input');
 		const root = {
 			list: browse.firstElementChild,
-			name: __('Library root', 'open-file-library'),
+			name: __('Library root', 'algoritmik-open-file-library'),
 			parent: null,
 		};
 		const folders = new Map([[root.list, root]]);
@@ -127,8 +127,8 @@
 				results.hidden = rows.length === 0;
 				status.textContent = rows.length
 					// translators: %d: Number of matching files.
-					? sprintf(_n('%d file found.', '%d files found.', rows.length, 'open-file-library'), rows.length)
-					: __('No matching files.', 'open-file-library');
+					? sprintf(_n('%d file found.', '%d files found.', rows.length, 'algoritmik-open-file-library'), rows.length)
+					: __('No matching files.', 'algoritmik-open-file-library');
 			}
 
 			input.addEventListener('input', () => {

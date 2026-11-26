@@ -1,4 +1,4 @@
-=== Open File Library ===
+=== Algoritmik Open File Library ===
 Contributors: saplumbaga
 Tags: files, documents, downloads, shortcode, file library
 Requires at least: 6.5
@@ -12,16 +12,16 @@ Browse, search, and download public files from an existing WordPress uploads fol
 
 == Description ==
 
-Open File Library is a lightweight WordPress plugin by Algoritmik. It displays local uploads folders and files as a responsive list with nested folder navigation, filename search, and direct download links. The filesystem is the source of truth, so there are no imports, attachment records, or saved plugin settings.
+Algoritmik Open File Library is a lightweight WordPress plugin. It displays local uploads folders and files as a responsive list with nested folder navigation, filename search, and direct download links. The filesystem is the source of truth, so there are no imports, attachment records, or saved plugin settings.
 
-Use `[open_file_library folder="publications"]` to list PDFs. Set `search="true"` or `breadcrumbs="true"` to enable either option. Under Settings → Open File Library, the help page can generate a shortcode with these options and controls for file size, date, types, and sorting.
+Use `[open_file_library folder="publications"]` to list PDFs. Set `search="true"` or `breadcrumbs="true"` to enable either option. Under Settings → Algoritmik Open File Library, the help page can generate a shortcode with these options and controls for file size, date, types, and sorting.
 
 Supported extensions include PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, ODT, ODS, ODP, TXT, CSV, ZIP, JPG, JPEG, PNG, GIF, and WEBP.
 
 == Installation ==
 
-1. Upload the installable ZIP through Plugins → Add New Plugin → Upload Plugin, or copy the plugin to `wp-content/plugins/open-file-library/`.
-2. Activate Open File Library from the Plugins screen.
+1. Upload the installable ZIP through Plugins → Add New Plugin → Upload Plugin, or copy the plugin to `wp-content/plugins/algoritmik-open-file-library/`.
+2. Activate Algoritmik Open File Library from the Plugins screen.
 3. Create a directory beneath your site’s uploads base and add public files using SFTP, SSH, or your hosting file manager.
 4. Add the shortcode to a post, page, or Shortcode block. The `folder` value is relative to uploads, such as `publications/reports`.
 
